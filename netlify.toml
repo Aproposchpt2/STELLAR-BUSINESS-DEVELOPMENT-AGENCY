@@ -11,6 +11,12 @@
   force = true
 
 [[redirects]]
+  from = "https://boda.aproposgroupllc.com/*"
+  to = "https://sbda.stellaruc.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "https://aproposopportunity.org/*"
   to = "https://sbda.stellaruc.com/:splat"
   status = 301
