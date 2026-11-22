@@ -149,15 +149,33 @@ body.dopen .scrim{opacity:1;pointer-events:auto}body.dopen .drawer{transform:non
 .sms{border:1px solid rgba(200,168,75,.4);padding:10px 12px;font-size:14px;max-width:420px}
 @media (max-width:860px){.demo{grid-template-columns:1fr}.dgrid{grid-template-columns:1fr}.slots{grid-template-columns:repeat(3,1fr)}}
 @media (prefers-reduced-motion:reduce){.fill{animation:none}}
+.ctas{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:34px}
+.cta{all:unset;box-sizing:border-box;cursor:pointer;display:block;border:1px solid rgba(200,168,75,.5);background:rgba(5,5,5,.72);padding:26px 24px}
+.cta:hover{border-color:#C8A84B}.cta:focus-visible{outline:2px solid #E4C878;outline-offset:3px}
+.cta .t{font-family:"Cormorant Garamond",serif;font-size:28px;line-height:1.15;color:#F7F4EC}
+.cta .t span{color:#C8A84B}
+.cta .s{font-size:16px;color:#E4C878;margin-top:12px}
+.cta .o{font-family:Syncopate,sans-serif;font-size:10px;letter-spacing:.2em;color:#C8A84B;margin-top:18px}
+.drawer{width:min(640px,100%)}
+.dbody .lead{font-family:"Cormorant Garamond",serif;font-size:30px;line-height:1.2;color:#F7F4EC;margin:0 0 14px}
+.dbody .kick{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:24px;color:#E4C878;margin:18px 0}
+.dbody .band{border:1px solid #C8A84B;padding:18px 20px;margin:24px 0}
+.dbody .band .t{font-family:Syncopate,sans-serif;font-size:11px;letter-spacing:.2em;color:#C8A84B}
+.dbody .band .s{font-family:"Cormorant Garamond",serif;font-size:24px;margin-top:6px}
+.dbody .ctaRow{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px;padding-top:22px;border-top:1px solid rgba(200,168,75,.3)}
+.path{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0}
+.path div{border:1px solid rgba(200,168,75,.35);padding:10px 8px;text-align:center;font-size:14px}
+.path div:last-child{background:#C8A84B;color:#050505;border-color:#C8A84B}
+@media (max-width:860px){.ctas{grid-template-columns:1fr}.path{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
 <header class="top">
  <a class="logo" href="#landing">STELLAR</a>
- <nav aria-label="Sections"><a href="#what">What we do</a><a href="#why">Why STELLAR</a><a href="#benefit">Benefits</a><a href="#cost">Cost</a><a href="#ava">Meet Ava</a></nav>
+ <nav aria-label="Sections"><a href="#what">What we do</a><a href="#" data-drawer="d-why">Why STELLAR</a><a href="#" data-drawer="d-benefit">Benefits</a><a href="#" data-drawer="d-cost">Cost</a><a href="#ava">Meet Ava</a></nav>
  <a class="btn" href="#consult" data-book>Book a consultation</a>
 </header>
-<div class="bgs" aria-hidden="true"><div data-for="landing" style="background-image:url(https://images.pexels.com/photos/37347/office-sitting-room-executive-sitting.jpg?auto=compress&cs=tinysrgb&w=2400)"></div><div data-for="what" style="background-image:url(https://images.unsplash.com/photo-1758448511255-ac2a24a135d7?w=2000&q=80&auto=format&fit=crop)"></div><div data-for="why" style="background-image:url(https://images.unsplash.com/photo-1706074740295-d7a79c079562?w=2000&q=80&auto=format&fit=crop)"></div><div data-for="benefit" style="background-image:url(https://images.unsplash.com/photo-1774953037913-af0cf688491a?w=2000&q=80&auto=format&fit=crop)"></div><div data-for="cost" style="background-image:url(https://images.unsplash.com/photo-1758630737403-1bda34e3f98e?w=2000&q=80&auto=format&fit=crop)"></div><div data-for="ava" style="background-image:url(https://images.unsplash.com/photo-1793993438341-0b18d5d522e0?w=2000&q=80&auto=format&fit=crop)"></div><div data-for="consult" style="background-image:url(https://images.unsplash.com/photo-1774186184398-1cc2da3d029e?w=2000&q=80&auto=format&fit=crop)"></div></div>
+<div class="bgs" aria-hidden="true"><div data-for="landing" style="background-image:url(https://images.pexels.com/photos/37347/office-sitting-room-executive-sitting.jpg?auto=compress&cs=tinysrgb&w=2400)"></div><div data-for="what" style="background-image:url(https://images.unsplash.com/photo-1758448511255-ac2a24a135d7?w=2000&q=80&auto=format&fit=crop)"></div><div data-for="explore" style="background-image:url(https://images.unsplash.com/photo-1758630737403-1bda34e3f98e?w=2000&q=80&auto=format&fit=crop)"></div><div data-for="ava" style="background-image:url(https://images.unsplash.com/photo-1793993438341-0b18d5d522e0?w=2000&q=80&auto=format&fit=crop)"></div></div>
 <main>
 <section class="room" id="landing"><div class="wrap"><div class="copy">
  <div class="lbl">Stellar Intelligent Software Developers</div>
@@ -174,37 +192,15 @@ body.dopen .scrim{opacity:1;pointer-events:auto}body.dopen .drawer{transform:non
  <p>We configure the technology around your workflow, not the other way around.</p>
 </div></div></section>
 
-<section class="room" id="why"><div class="wrap">
- <div class="lbl">Why choose Stellar Business Systems</div>
- <div class="items">
-  <div><div class="t">Keep your number.</div><div class="s">Simply forward your calls to STELLAR. No new equipment. You stay in control.</div></div>
-  <div><div class="t">Month to month, no licensing fee.</div><div class="s">Stay because it works, not because you're locked in.</div></div>
-  <div><div class="t">Customer Care Center, 24/7.</div><div class="s">Included with every system, not sold as an upgrade.</div></div>
-  <div><div class="t">One workspace.</div><div class="s">Calls, texts, email and calendar in one place. Better coordination.</div></div>
-  <div><div class="t">Simultaneous calls.</div><div class="s">The system answers multiple calls at the same time, so no caller waits.</div></div>
+<section class="room" id="explore"><div class="wrap">
+ <div class="lbl">Explore Stellar Business Systems</div>
+ <h2 style="margin-top:14px">See what your business gets.</h2>
+ <div class="ctas">
+  <button class="cta" type="button" data-drawer="d-why" aria-haspopup="dialog"><div class="t">Why choose Stellar Business Systems <span>›</span></div><div class="s">Built around your business. Never locked in.</div><div class="o">Open details</div></button>
+  <button class="cta" type="button" data-drawer="d-benefit" aria-haspopup="dialog"><div class="t">How can my business benefit <span>›</span></div><div class="s">Open 24/7. Every call answered. More revenue.</div><div class="o">Open details</div></button>
+  <button class="cta" type="button" data-drawer="d-cost" aria-haspopup="dialog"><div class="t">What does the service cost <span>›</span></div><div class="s">One platform fee. Pay only for the calls you get.</div><div class="o">Open details</div></button>
  </div>
 </div></section>
-
-<section class="room" id="benefit"><div class="wrap">
- <div class="lbl">How can my business benefit</div>
- <div class="items">
-  <div><div class="t">Extended hours.</div><div class="s">STELLAR answers nights, weekends and holidays.</div></div>
-  <div><div class="t">Every call answered.</div><div class="s">A missed call could be a customer ready to buy. STELLAR provides intelligent call handling, lead capture and follow-up.</div></div>
- </div>
- <p class="close">Productivity. Extended coverage. Profitability.</p>
-</div></section>
-
-<section class="room" id="cost"><div class="wrap">
- <div class="lbl">What does a custom business system cost?</div>
- <h2 style="margin-top:14px;max-width:900px">Does your business communication expense reflect how much you actually use?</h2>
- <div class="fees">
-  <div class="fee"><div class="t">Platform fee</div><div class="s">Business System · Maintenance · 24/7 Customer Care Center Support</div></div>
-  <div class="fee"><div class="t">Call fee</div><div class="s">Varies with your usage for the month. No surprise charges.</div></div>
- </div>
- <p class="close">A pricing model designed around your business.</p>
- <div class="row"><a class="btn" href="#consult" data-book>Book a consultation</a></div>
-</div></section>
-
 <section class="room" id="ava"><div class="wrap demo">
  <div>
   <div class="lbl">Meet Ava</div>
@@ -213,6 +209,7 @@ body.dopen .scrim{opacity:1;pointer-events:auto}body.dopen .drawer{transform:non
   <p>This is a demonstration. Ava is the service receptionist for a car dealership. Call to book a brake service and watch the service desk fill in as she works.</p>
   <div class="row"><button class="btn" id="startDrive" type="button">Start the demo</button></div>
   <div class="status" aria-live="polite"><span class="dot" id="dot"></span><span id="driveNote">Uses your microphone. About three minutes.</span></div>
+  <p style="margin-top:26px">Ready for a system like this? <a href="#" data-book>Book a consultation</a></p>
  </div>
  <div class="dash" aria-label="Service desk dashboard">
   <div class="bar"><span>Stellar Motors · Service Desk</span><span id="dstat">Waiting for a call</span></div>
@@ -225,13 +222,6 @@ body.dopen .scrim{opacity:1;pointer-events:auto}body.dopen .drawer{transform:non
   </div>
  </div>
 </div></section>
-<section class="room" id="consult"><div class="wrap meet">
- <div class="lbl">Book a consultation</div>
- <h2 style="margin:14px 0 16px">Let's build yours.</h2>
- <p>Ava, our AI assistant, books your 30-minute consultation. No fee until we both sign.</p>
- <div class="row" style="justify-content:center"><button class="btn" type="button" data-book>Book with Ava</button></div>
-</div></section>
-
 </main>
 <footer>
  <div class="l">STELLAR INTELLIGENT SOFTWARE DEVELOPERS · (888) 258-9498</div>
@@ -244,12 +234,41 @@ body.dopen .scrim{opacity:1;pointer-events:auto}body.dopen .drawer{transform:non
   <p class="fine" id="avaNote" style="margin-top:12px">Prefer to call? <a href="tel:+18882589498">(888) 258-9498</a></p></div>
  <button class="btn" type="button" aria-expanded="false" id="avaBtn">Ask Ava</button>
 </div>
-<div class="preview">Preview</div>
+<template id="d-why" data-title="Why choose Stellar Business Systems"><p class="lead">Custom built business systems, configured around the way you work.</p>
+<p>Every business operates differently. Your software should reflect the way you actually work. STELLAR develops intelligent business applications configured around your operations, your customers and your service requirements.</p>
+<p class="kick">Why pay for software features you'll never use?</p>
+<p>Instead of forcing your business into a generic software package, we configure the technology around your workflow. You get exactly what your business needs, nothing more, nothing less.</p>
+<h3>Delivered with every system</h3><ul class="f"><li><b>Your business phone line</b>Keep the number your customers already know, or get a new one.</li><li><b>Customer tracking dashboard</b>Every caller, lead and appointment in one view.</li><li><b>Customer 360 profiles</b>Each customer's full history in one place.</li><li><b>Business workspace</b>Text customers, send and receive email and sync your calendar from one dashboard. Your agent books appointments straight onto it.</li><li><b>Performance reporting</b>See calls answered, leads captured and appointments booked.</li><li><b>Secure cloud hosting</b>Your system runs on managed, secure infrastructure.</li><li><b>System maintenance and our 24/7 Customer Care Center</b>We keep your system running, and real support is there any hour, any day.</li></ul>
+<h3>Built in to fit your business</h3><ul class="f"><li>Intelligent conversational agent, 24/7</li><li>Simultaneous call handling</li><li>English and Spanish</li><li>Call routing and live transfer</li><li>Lead capture and qualification</li><li>Integrated appointment booking</li><li>Automated text follow-up</li><li>Outbound follow-up calls</li><li>Sales pipeline tracking</li><li>Service and maintenance ticketing</li><li>Vendor coordination</li><li>Support case management</li><li>Review request automation</li><li>Marketing engine</li><li>Business website</li><li>Third-party integrations</li></ul>
+<h3>How we work with you</h3>
+<ul class="f"><li><b>Keep your number.</b>Simply forward your calls to STELLAR. No new equipment, no configuration changes. Forward when you want us answering, stop when you don't. You stay in control.</li><li><b>Month to month, no licensing fee.</b>Stay because it works, not because you're locked in.</li><li><b>Our Customer Care Center, 24/7.</b>Included with every system, not sold as an upgrade.</li><li><b>One workspace.</b>Calls, texts, email and calendar in one place. Better coordination.</li></ul>
+<div class="band"><div class="t">The STELLAR difference</div><div class="s">Built around your business. Never locked in.</div></div><div class="ctaRow"><button class="btn" type="button" data-book data-close>Book a consultation</button><a class="btn sec" href="#ava" data-close>Experience Ava live</a></div></template><template id="d-benefit" data-title="How can my business benefit"><p class="lead">24/7 expanded business coverage.</p>
+<p class="kick">Your business may close. Your customer engagement doesn't.</p>
+<p>Your business closes at five. What happens when a customer calls at six? STELLAR extends your business operations beyond traditional working hours: nights, weekends and holidays. Your system stays available to assist customers, answer questions and capture opportunities.</p>
+<h3>What your business gains</h3>
+<ul class="f"><li><b>Every call answered.</b>A missed call could be a customer requesting information, scheduling service, or ready to buy. STELLAR answers with intelligent call handling, lead capture and follow-up.</li><li><b>Simultaneous calls.</b>Your system answers multiple calls at the same time. No busy signal, no caller left on hold.</li><li><b>Customers served in their language.</b>English or Spanish, every caller is welcomed and understood.</li><li><b>Your team gets its time back.</b>No more stopping work to answer the phone. Your people focus on the customers in front of them.</li><li><b>Every caller organized, every follow-up done.</b>Names, needs and next steps are captured in one place. Confirmations, reminders and callbacks go out on their own.</li></ul>
+<h3>How it leads to profitability</h3>
+<div class="path"><div>More calls answered</div><div>More leads captured</div><div>More bookings and sales</div><div>More revenue</div></div>
+<p>More opportunities to connect with customers, without adding after-hours staff or payroll for routine calls.</p>
+<div class="band"><div class="t">The result</div><div class="s">Productivity. Extended coverage. Profitability.</div></div><div class="ctaRow"><button class="btn" type="button" data-book data-close>Book a consultation</button><a class="btn sec" href="#ava" data-close>Experience Ava live</a></div></template><template id="d-cost" data-title="What does the service cost"><p class="lead">A pricing model designed around your business.</p>
+<p class="kick">Does your business communication expense reflect how much you actually use?</p>
+<p>With STELLAR, your monthly cost has two parts. You always know what you're paying for.</p>
+<div class="band"><div class="t">Platform fee</div><div class="s">Business System · Maintenance · 24/7 Customer Care Center Support</div><p style="margin:10px 0 0">One monthly fee covers the system built for your business, its ongoing maintenance and round-the-clock support.</p></div>
+<div class="band"><div class="t">Call fee</div><div class="s">This cost varies. You pay for your usage for the month. No surprise charges.</div><p style="margin:10px 0 0">More activity means more usage. A slow month costs you less.</p></div>
+<h3>No hidden costs, no long-term commitments</h3>
+<ul class="f"><li>Month to month, no licensing fees</li><li>No equipment to purchase</li><li>Keep your business number</li><li>No fee until we both sign</li></ul>
+<p style="margin-top:18px">Your monthly fee is quoted in your consultation, based on the system your business needs.</p><div class="ctaRow"><button class="btn" type="button" data-book data-close>Book a consultation</button><a class="btn sec" href="#ava" data-close>Experience Ava live</a></div></template><div class="scrim" id="scrim"></div><aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dtitle" aria-hidden="true"><div class="dhead"><h3 id="dtitle" style="margin:0"></h3><button class="dclose" type="button" id="dclose">Close</button></div><div class="dbody" id="dbody"></div></aside><div class="preview">Preview</div>
 <script>
 const ava=document.getElementById('avaw'),ab=document.getElementById('avaBtn');ab.addEventListener('click',()=>{const o=ava.classList.toggle('open');ab.setAttribute('aria-expanded',o)});
 function openBook(e){if(e)e.preventDefault();ava.classList.add('open');ab.setAttribute('aria-expanded',true);document.getElementById('avaT').textContent='Book with Ava';document.getElementById('avaM').textContent="Hi, I'm Ava, Stellar's AI assistant. I'll find a time for your 30-minute consultation and send you the meeting details.";document.getElementById('avaTalk').focus()}
 document.querySelectorAll('[data-book]').forEach(b=>b.addEventListener('click',openBook));
 document.getElementById('avaTalk').addEventListener('click',()=>{document.getElementById('avaNote').innerHTML='Preview: Ava\u2019s booking agent is not connected yet. Call <a href="tel:+18882589498">(888) 258-9498</a>.'});
+let lastBtn=null;const dr=document.getElementById('drawer'),dbody=document.getElementById('dbody');
+function openD(id,btn){const t=document.getElementById(id);document.getElementById('dtitle').textContent=t.dataset.title;dbody.innerHTML='';dbody.appendChild(t.content.cloneNode(true));dbody.scrollTop=0;lastBtn=btn;document.body.classList.add('dopen');dr.setAttribute('aria-hidden','false');dbody.querySelectorAll('[data-book]').forEach(b=>b.addEventListener('click',e=>{closeD(true);openBook(e)}));dbody.querySelectorAll('a[data-close]').forEach(a=>a.addEventListener('click',()=>closeD(true)));document.getElementById('dclose').focus()}
+function closeD(skip){document.body.classList.remove('dopen');dr.setAttribute('aria-hidden','true');if(!skip&&lastBtn)lastBtn.focus()}
+document.querySelectorAll('[data-drawer]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();openD(b.dataset.drawer,b)}));
+document.getElementById('dclose').addEventListener('click',()=>closeD());document.getElementById('scrim').addEventListener('click',()=>closeD());
+addEventListener('keydown',e=>{if(e.key==='Escape'&&document.body.classList.contains('dopen'))closeD()});
 const rooms=[...document.querySelectorAll('main section.room')],bgs={};document.querySelectorAll('.bgs div').forEach(d=>bgs[d.dataset.for]=d);
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 function tick(){const vh=innerHeight;let cur=0;rooms.forEach((r,i)=>{if(r.getBoundingClientRect().top<=vh*.5)cur=i});
