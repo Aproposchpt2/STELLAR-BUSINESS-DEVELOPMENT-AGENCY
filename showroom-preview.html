@@ -132,7 +132,7 @@ body.dopen .scrim{opacity:1;pointer-events:auto}body.dopen .drawer{transform:non
 <header class="top">
  <a class="logo" href="#landing">STELLAR</a>
  <nav aria-label="Sections"><a href="#what">What we do</a><a href="#why">Why STELLAR</a><a href="#benefit">Benefits</a><a href="#cost">Cost</a><a href="#ava">Meet Ava</a></nav>
- <a class="btn" href="#consult">Book a consultation</a>
+ <a class="btn" href="#consult" data-book>Book a consultation</a>
 </header>
 <div class="bgs" aria-hidden="true"><div data-for="landing" style="background-image:url(https://images.unsplash.com/photo-1774192620890-f61475279725?w=2000&q=80&auto=format&fit=crop)"></div><div data-for="what" style="background-image:url(https://images.unsplash.com/photo-1758448511255-ac2a24a135d7?w=2000&q=80&auto=format&fit=crop)"></div><div data-for="why" style="background-image:url(https://images.unsplash.com/photo-1706074740295-d7a79c079562?w=2000&q=80&auto=format&fit=crop)"></div><div data-for="benefit" style="background-image:url(https://images.unsplash.com/photo-1774953037913-af0cf688491a?w=2000&q=80&auto=format&fit=crop)"></div><div data-for="cost" style="background-image:url(https://images.unsplash.com/photo-1724862873281-238213626373?w=2000&q=80&auto=format&fit=crop)"></div><div data-for="ava" style="background-image:url(https://images.unsplash.com/photo-1764410481612-7544525b2991?w=2000&q=80&auto=format&fit=crop)"></div><div data-for="consult" style="background-image:url(https://images.unsplash.com/photo-1774186184398-1cc2da3d029e?w=2000&q=80&auto=format&fit=crop)"></div></div>
 <main>
@@ -140,7 +140,7 @@ body.dopen .scrim{opacity:1;pointer-events:auto}body.dopen .drawer{transform:non
  <div class="lbl">Stellar Intelligent Software Developers</div>
  <h1 style="margin-top:16px">Your business may close. Your customer engagement doesn't.</h1>
  <p style="margin-top:20px">Intelligent business systems, built around the way you work.</p>
- <div class="row"><a class="btn" href="#consult">Book a consultation</a><a class="btn sec" href="#ava">Experience Ava live</a></div>
+ <div class="row"><a class="btn" href="#consult" data-book>Book a consultation</a><a class="btn sec" href="#ava">Experience Ava live</a></div>
 </div></div></section>
 
 <section class="room" id="what"><div class="wrap"><div class="copy">
@@ -178,7 +178,7 @@ body.dopen .scrim{opacity:1;pointer-events:auto}body.dopen .drawer{transform:non
   <div class="fee"><div class="t">Call fee</div><div class="s">Varies with your usage for the month. No surprise charges.</div></div>
  </div>
  <p class="close">A pricing model designed around your business.</p>
- <div class="row"><a class="btn" href="#consult">Book a consultation</a></div>
+ <div class="row"><a class="btn" href="#consult" data-book>Book a consultation</a></div>
 </div></section>
 
 <section class="room" id="ava"><div class="wrap"><div class="copy">
@@ -191,8 +191,8 @@ body.dopen .scrim{opacity:1;pointer-events:auto}body.dopen .drawer{transform:non
 <section class="room" id="consult"><div class="wrap meet">
  <div class="lbl">Book a consultation</div>
  <h2 style="margin:14px 0 16px">Let's build yours.</h2>
- <p>A 30-minute consultation on Google Meet. No fee until we both sign.</p>
- <div class="row" style="justify-content:center"><a class="btn" href="https://calendar.app.google/DNAMvEyWbg2jfxaN8" target="_blank" rel="noopener">Book my consultation</a></div>
+ <p>Ava, our AI assistant, books your 30-minute consultation. No fee until we both sign.</p>
+ <div class="row" style="justify-content:center"><button class="btn" type="button" data-book>Book with Ava</button></div>
 </div></section>
 
 </main>
@@ -201,15 +201,19 @@ body.dopen .scrim{opacity:1;pointer-events:auto}body.dopen .drawer{transform:non
  <p>Privacy · Terms</p><p>A DBA of Apropos Group LLC</p>
 </footer>
 <div class="ava" id="avaw">
- <div class="avap" role="dialog" aria-label="Ask Ava"><div class="lbl">Ask Ava</div>
-  <p>Hi, I'm Ava, Stellar's AI assistant. My chat opens here soon.</p>
-  <p>Need an answer now? Call <a href="tel:+18882589498">(888) 258-9498</a>.</p></div>
+ <div class="avap" role="dialog" aria-label="Ask Ava"><div class="lbl" id="avaT">Ask Ava</div>
+  <p id="avaM">Hi, I'm Ava, Stellar's AI assistant. Ask me about our systems, or let me book your consultation.</p>
+  <button class="btn" type="button" id="avaTalk" style="width:100%;margin-top:6px">Talk to Ava</button>
+  <p class="fine" id="avaNote" style="margin-top:12px">Prefer to call? <a href="tel:+18882589498">(888) 258-9498</a></p></div>
  <button class="btn" type="button" aria-expanded="false" id="avaBtn">Ask Ava</button>
 </div>
 <div class="preview">Preview</div>
 <script>
 document.getElementById('startDrive').addEventListener('click',()=>{document.getElementById('driveNote').textContent='Preview: Ava\u2019s demo agent is not connected yet.'});
 const ava=document.getElementById('avaw'),ab=document.getElementById('avaBtn');ab.addEventListener('click',()=>{const o=ava.classList.toggle('open');ab.setAttribute('aria-expanded',o)});
+function openBook(e){if(e)e.preventDefault();ava.classList.add('open');ab.setAttribute('aria-expanded',true);document.getElementById('avaT').textContent='Book with Ava';document.getElementById('avaM').textContent="Hi, I'm Ava, Stellar's AI assistant. I'll find a time for your 30-minute consultation and send you the meeting details.";document.getElementById('avaTalk').focus()}
+document.querySelectorAll('[data-book]').forEach(b=>b.addEventListener('click',openBook));
+document.getElementById('avaTalk').addEventListener('click',()=>{document.getElementById('avaNote').innerHTML='Preview: Ava\u2019s booking agent is not connected yet. Call <a href="tel:+18882589498">(888) 258-9498</a>.'});
 const rooms=[...document.querySelectorAll('main section.room')],bgs={};document.querySelectorAll('.bgs div').forEach(d=>bgs[d.dataset.for]=d);
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 function tick(){const vh=innerHeight;let cur=0;rooms.forEach((r,i)=>{if(r.getBoundingClientRect().top<=vh*.5)cur=i});
