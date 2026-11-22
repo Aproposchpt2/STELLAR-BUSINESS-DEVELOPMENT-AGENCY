@@ -149,7 +149,7 @@ body.dopen .scrim{opacity:1;pointer-events:auto}body.dopen .drawer{transform:non
 .sms{border:1px solid rgba(200,168,75,.4);padding:10px 12px;font-size:14px;max-width:420px}
 @media (max-width:860px){.demo{grid-template-columns:1fr}.dgrid{grid-template-columns:1fr}.slots{grid-template-columns:repeat(3,1fr)}}
 @media (prefers-reduced-motion:reduce){.fill{animation:none}}
-.ctas{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:34px}
+.ctas{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:34px}
 .cta{all:unset;box-sizing:border-box;cursor:pointer;display:block;border:1px solid rgba(200,168,75,.5);background:rgba(5,5,5,.72);padding:26px 24px}
 .cta:hover{border-color:#C8A84B}.cta:focus-visible{outline:2px solid #E4C878;outline-offset:3px}
 .cta .t{font-family:"Cormorant Garamond",serif;font-size:28px;line-height:1.15;color:#F7F4EC}
@@ -163,25 +163,48 @@ body.dopen .scrim{opacity:1;pointer-events:auto}body.dopen .drawer{transform:non
 .dbody .band .t{font-family:Syncopate,sans-serif;font-size:11px;letter-spacing:.2em;color:#C8A84B}
 .dbody .band .s{font-family:"Cormorant Garamond",serif;font-size:24px;margin-top:6px}
 .dbody .ctaRow{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px;padding-top:22px;border-top:1px solid rgba(200,168,75,.3)}
-.path{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0}
+.path{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0}
 .path div{border:1px solid rgba(200,168,75,.35);padding:10px 8px;text-align:center;font-size:14px}
 .path div:last-child{background:#C8A84B;color:#050505;border-color:#C8A84B}
-@media (max-width:1100px){.ctas{grid-template-columns:1fr 1fr}}@media (max-width:860px){.ctas{grid-template-columns:1fr}.path{grid-template-columns:1fr 1fr}}
+@media (max-width:860px){.ctas{grid-template-columns:1fr}.path{grid-template-columns:1fr 1fr}}
+#who{position:relative;display:flex;flex-direction:column;justify-content:center;min-height:100vh;padding:65px 0 40px;text-align:center}
+.ticker{position:absolute;top:65px;left:0;right:0;overflow:hidden;border-top:1px solid rgba(200,168,75,.45);border-bottom:1px solid rgba(200,168,75,.45);background:#050505;padding:11px 0}
+.ticker .track{display:inline-flex;white-space:nowrap;animation:tick 48s linear infinite}
+.ticker span{font:400 13px/1 'DM Sans',sans-serif;letter-spacing:.06em;color:#F7F4EC;padding:0 22px}.ticker i{font-style:normal;color:#E4C878;font-size:12px}
+@keyframes tick{to{transform:translateX(-50%)}}
+.whoIn{max-width:1100px;margin:0 auto;padding:70px 22px 0}
+.whoIn img{display:block;width:min(560px,100%);height:auto;margin:0 auto}
+#who h1{margin:34px auto 0;text-transform:uppercase;letter-spacing:.04em;font-size:clamp(34px,5.4vw,70px);line-height:1.12}
+.kickline{margin-top:26px!important;font-family:'Cormorant Garamond',serif;font-size:clamp(24px,2.6vw,32px);line-height:1.25;color:#E4C878!important}
+@media (prefers-reduced-motion:reduce){.ticker .track{animation:none}}
 </style>
 </head>
 <body>
 <header class="top">
- <a class="logo" href="#landing">STELLAR</a>
- <nav aria-label="Sections"><a href="#" data-drawer="d-what">What we do</a><a href="#" data-drawer="d-why">Why STELLAR</a><a href="#" data-drawer="d-benefit">Benefits</a><a href="#" data-drawer="d-cost">Cost</a><a href="#ava">Meet Ava</a></nav>
+ <a class="logo" href="#who">STELLAR</a>
+ <nav aria-label="Sections"><a href="#what">What we do</a><a href="#" data-drawer="d-why">Why STELLAR</a><a href="#" data-drawer="d-benefit">Benefits</a><a href="#" data-drawer="d-cost">Cost</a><a href="#ava">Meet Ava</a></nav>
  <a class="btn" href="#" data-book>Schedule an appointment</a>
 </header>
-<div class="bgs" aria-hidden="true"><div data-for="landing" style="background-image:url(https://images.pexels.com/photos/37347/office-sitting-room-executive-sitting.jpg?auto=compress&cs=tinysrgb&w=2400)"></div><div data-for="ava" style="background-image:url(https://images.unsplash.com/photo-1793993438341-0b18d5d522e0?w=2000&q=80&auto=format&fit=crop)"></div></div>
+<div class="bgs" aria-hidden="true"><div data-for="who"></div><div data-for="what" style="background-image:url(https://images.unsplash.com/photo-1758448511255-ac2a24a135d7?w=2000&q=80&auto=format&fit=crop)"></div><div data-for="explore" style="background-image:url(https://images.pexels.com/photos/37347/office-sitting-room-executive-sitting.jpg?auto=compress&cs=tinysrgb&w=2400)"></div><div data-for="ava" style="background-image:url(https://images.unsplash.com/photo-1793993438341-0b18d5d522e0?w=2000&q=80&auto=format&fit=crop)"></div></div>
 <main>
-<section class="room" id="landing"><div class="wrap">
- <div class="lbl">Stellar Intelligent Software Developers</div>
- <h1 style="margin-top:14px">Explore Stellar Business Systems</h1>
+<section class="room" id="who" aria-label="Who we are">
+ <div class="ticker" aria-label="Customized business system development; Productivity; Profitability; 24/7 365 coverage; Intelligent systems handle the predictable; Your people deliver the exceptional"><div class="track" aria-hidden="true"><span>CUSTOMIZED BUSINESS SYSTEM DEVELOPMENT</span><i>✦</i><span>PRODUCTIVITY</span><i>✦</i><span>PROFITABILITY</span><i>✦</i><span>24/7 365 COVERAGE</span><i>✦</i><span>INTELLIGENT SYSTEMS HANDLE THE PREDICTABLE</span><i>✦</i><span>YOUR PEOPLE DELIVER THE EXCEPTIONAL</span><i>✦</i><span>CUSTOMIZED BUSINESS SYSTEM DEVELOPMENT</span><i>✦</i><span>PRODUCTIVITY</span><i>✦</i><span>PROFITABILITY</span><i>✦</i><span>24/7 365 COVERAGE</span><i>✦</i><span>INTELLIGENT SYSTEMS HANDLE THE PREDICTABLE</span><i>✦</i><span>YOUR PEOPLE DELIVER THE EXCEPTIONAL</span><i>✦</i></div></div>
+ <div class="whoIn"><img src="showroom-assets/stellar-master-logo.jpg" width="1400" height="788" alt="Stellar Intelligent Software Developers. Customized Business Operating Systems."><h1>Engineered to optimize business operations</h1></div>
+</section>
+
+<section class="room" id="what"><div class="wrap"><div class="copy">
+ <div class="lbl">What we do</div>
+ <h2 style="margin-top:14px">Why pay for software features you'll never use?</h2>
+ <div class="rule"></div>
+ <p>Every business operates differently. STELLAR develops intelligent business applications configured around your operations, customers and service requirements.</p>
+ <p>We configure the technology around your workflow, not the other way around.</p>
+ <p class="kickline">Your business may close. Your customer engagement doesn't.</p>
+</div></div></section>
+
+<section class="room" id="explore"><div class="wrap">
+ <div class="lbl">Explore Stellar Business Systems</div>
+ <h2 style="margin-top:14px">See what your business gets.</h2>
  <div class="ctas">
-  <button class="cta" type="button" data-drawer="d-what" aria-haspopup="dialog"><div class="t">What we do <span>›</span></div><div class="s">Intelligent business systems, built around the way you work.</div><div class="o">Open details</div></button>
   <button class="cta" type="button" data-drawer="d-why" aria-haspopup="dialog"><div class="t">Why choose Stellar Business Systems <span>›</span></div><div class="s">Built around your business. Never locked in.</div><div class="o">Open details</div></button>
   <button class="cta" type="button" data-drawer="d-benefit" aria-haspopup="dialog"><div class="t">How can my business benefit <span>›</span></div><div class="s">Open 24/7. Every call answered. More revenue.</div><div class="o">Open details</div></button>
   <button class="cta" type="button" data-drawer="d-cost" aria-haspopup="dialog"><div class="t">What does the service cost <span>›</span></div><div class="s">One platform fee. Pay only for the calls you get.</div><div class="o">Open details</div></button>
@@ -220,12 +243,7 @@ body.dopen .scrim{opacity:1;pointer-events:auto}body.dopen .drawer{transform:non
   <p class="fine" id="avaNote" style="margin-top:12px">Prefer to call? <a href="tel:+18882589498">(888) 258-9498</a></p></div>
  <button class="btn" type="button" aria-expanded="false" id="avaBtn">Ask Ava</button>
 </div>
-<template id="d-what" data-title="What we do"><p class="lead">Your business may close. Your customer engagement doesn't.</p>
-<p>Intelligent business systems, built around the way you work.</p>
-<p class="kick">Why pay for software features you'll never use?</p>
-<p>Every business operates differently. STELLAR develops intelligent business applications configured around your operations, customers and service requirements.</p>
-<p>We configure the technology around your workflow, not the other way around. You get exactly what your business needs, nothing more, nothing less.</p>
-<div class="band"><div class="t">What we do</div><div class="s">Configured around your workflow. Nothing more, nothing less.</div></div><div class="ctaRow"><button class="btn" type="button" data-book data-close>Schedule an Appointment with one of our Business Consultants Today</button><a class="btn sec" href="#ava" data-close>Experience Ava live</a></div></template><template id="d-why" data-title="Why choose Stellar Business Systems"><p class="lead">Custom built business systems, configured around the way you work.</p>
+<template id="d-why" data-title="Why choose Stellar Business Systems"><p class="lead">Custom built business systems, configured around the way you work.</p>
 <h3>Delivered with every system</h3><ul class="f"><li><b>Your business phone line</b>Keep the number your customers already know, or get a new one.</li><li><b>Customer tracking dashboard</b>Every caller, lead and appointment in one view.</li><li><b>Customer 360 profiles</b>Each customer's full history in one place.</li><li><b>Business workspace</b>Text customers, send and receive email and sync your calendar from one dashboard. Your agent books appointments straight onto it.</li><li><b>Performance reporting</b>See calls answered, leads captured and appointments booked.</li><li><b>Secure cloud hosting</b>Your system runs on managed, secure infrastructure.</li><li><b>System maintenance and our 24/7 Customer Care Center</b>We keep your system running, and real support is there any hour, any day.</li></ul>
 <h3>Built in to fit your business</h3><ul class="f"><li>Intelligent conversational agent, 24/7</li><li>Simultaneous call handling</li><li>English and Spanish</li><li>Call routing and live transfer</li><li>Lead capture and qualification</li><li>Integrated appointment booking</li><li>Automated text follow-up</li><li>Outbound follow-up calls</li><li>Sales pipeline tracking</li><li>Service and maintenance ticketing</li><li>Vendor coordination</li><li>Support case management</li><li>Review request automation</li><li>Marketing engine</li><li>Business website</li><li>Third-party integrations</li></ul>
 <h3>How we work with you</h3>
